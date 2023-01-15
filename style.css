@@ -1,0 +1,289 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui;
+  }
+  
+  body {
+    background: #c2bfbf;
+    font-size: 16px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  h1 {
+   color:white;
+  }
+ 
+  
+  .deck {
+    width:  1000px;
+    background: #716f71;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1%;
+  }
+  
+  .deck .card {
+    height: 100px;
+    width: 100px;
+    margin: 0.5rem ;
+    background: #141214;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1%;
+  }
+
+  .deck .card img{
+  visibility: hidden;
+  }
+  
+  .deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+    backface-visibility: visible !important;
+    animation-duration: 0.75s;
+    border-radius: 1%;
+  }
+
+  .deck .card.open img,  .deck .card.match img {
+    visibility: visible;
+    }
+  
+  .deck .card.show {
+    font-size: 33px;
+  }
+  
+  .deck .card.match {
+    cursor: default;
+    background: rgb(12, 173, 12);
+    font-size: 33px;
+    backface-visibility: visible !important;
+    animation-duration: 0.75s;
+  }
+  
+  .deck .card.unmatched {
+    backface-visibility: visible !important;
+    animation-duration: 0.75s;
+    background: #e2043b;
+  }
+  
+  .deck .card.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+  }
+  
+  /*
+   * Styles for the Score Panel
+   */
+  
+  .score-panel {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+    
+    
+  .timer {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+
+  .myProgress {
+    width: 100%;
+    background-color: #ddd;
+    
+  }
+  .bloc{
+    width: 500px;
+    margin-top: 25px;
+  }
+  #myBar {
+    width: 0%;
+    height: 30px;
+    
+  }
+  
+
+  /* Score board */
+
+  .scoreboard {
+    background-color: #333;
+    color: whitesmoke;
+    padding: 1.5rem;
+    margin: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .scoreboard h2{
+    text-align: center;
+  }
+  .scoreboard li{
+    padding-top: 0.5rem;
+    list-style-type: none;
+  }
+
+
+  /*
+   * Styles for Modals
+   */
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    background: #ffffff;
+    padding: 10px;
+    width: 75%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+  }
+  
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .popup .close:hover {
+    color: red;
+  }
+  
+  .popup .content-1,
+  .content-2 {
+    max-height: 30%;
+    overflow: auto;
+    text-align: center;
+  }
+  
+  .show {
+    visibility: visible !important;
+    opacity: 100 !important;
+  }
+    
+  #play-again, #try-again {
+    background-color: #141214;
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  #formElem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #formElem .nameform {
+    text-align: center;
+    width: 25%;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+
+  }
+
+
+/****** Media queries
+  **************************/
+   
+  /* For Mobile  */
+
+  @media only screen and (max-width: 480px)  {
+    
+    /*  Styles for the deck of cards  */
+  
+   .deck {
+     width: 90%;
+   }
+ 
+   .deck .card {
+     height: 4.7rem;
+     width: 4.7rem;
+   }
+   .deck .card img{
+     height: 4.0rem;
+     width: 4.0rem;
+   }
+
+   .bloc{
+     width: 300px;
+     margin-top: 1rem;
+   }
+ }
+ 
+ /* For Tablets  */
+ 
+ @media (min-width: 480px) and (max-width: 1024px){
+ 
+   .deck {
+     width: 80%;
+   }
+ 
+   .deck .card {
+     height: 125px;
+     width: 125px;
+   }
+ 
+   .popup {
+     width: 60%;
+   }
+
+   .bloc{
+     width: 400px;
+     margin-top: 1rem;
+   }
+ }
+ 
